@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCharacters } from '../../api';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Character } from './components';
 
 const Home = () => {
-  const { isLoading, data } = useQuery<Character[]>({
+  const { isLoading, data } = useQuery<ICharacter[]>({
     queryKey: ['characters'],
     queryFn: fetchCharacters,
   });
@@ -15,21 +14,11 @@ const Home = () => {
         <h1>Loading</h1>
       ) : (
         <GridContainer>
-          {data?.slice(0, 30).map((character) => (
-            <div key={character.id}>
-              <Link to={`character/${character.id}`}>
-                <h3>{character.name}</h3>
-              </Link>
-              <LazyLoadImage
-                src={character.imageUrl}
-                alt={character.name}
-                loading="lazy"
-                width="200"
-                height="200"
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-          ))}
+          {data
+            ?.slice(0, 30)
+            .map((character) => (
+              <Character character={character} key={character.id} />
+            ))}
         </GridContainer>
       )}
     </Container>
@@ -46,6 +35,15 @@ const Container = styled.div`
   padding: 80px;
   padding-top: 0px;
   box-sizing: border-box;
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #4580b7; /* 더 내려갈 때 나타나는 배경 색상 (파란색) */
+    z-index: -1; /* 페이지 내용 위에 나타나도록 설정 */
+  }
 `;
 
 const GridContainer = styled.div`
@@ -55,11 +53,11 @@ const GridContainer = styled.div`
   margin: auto; // Add this line to center the container
   width: 100%;
   max-width: 1800px;
-  padding: 10px 30px;
+  padding: 60px 30px;
   box-sizing: border-box;
 `;
 
-interface Character {
+export interface ICharacter {
   id: number;
   name: string;
   imageUrl?: string;
