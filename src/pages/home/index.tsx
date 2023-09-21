@@ -50,7 +50,7 @@ const Container = styled.div`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 50px 70px;
   margin: auto; // Add this line to center the container
   width: 100%;
