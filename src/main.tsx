@@ -1,13 +1,8 @@
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import Globalstyle from './GlobalStyle.ts';
+import { RouterProvider } from 'react-router-dom';
+import router from './Router.tsx';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
-root.render(
-  <>
-    <Globalstyle />
-    <App />
-  </>,
-);
+root.render(<RouterProvider router={router} />);
