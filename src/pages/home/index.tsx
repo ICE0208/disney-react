@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchCharacters } from '../../api';
 import styled from 'styled-components';
 import { Character } from './components';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const { isLoading, data } = useQuery<ICharacter[]>({
@@ -10,6 +11,7 @@ const Home = () => {
   });
   return (
     <Container>
+      <Helmet title="Disney Characters" />
       {isLoading ? (
         <h1>Loading</h1>
       ) : (
