@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCharacters } from '../../api';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Home = () => {
   const { isLoading, data } = useQuery<Character[]>({
@@ -16,7 +17,11 @@ const Home = () => {
           {data?.map((character) => (
             <div key={character.id}>
               <h3>{character.name}</h3>
-              <img src={character.imageUrl} />
+              <LazyLoadImage
+                src={character.imageUrl}
+                alt={character.name}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
