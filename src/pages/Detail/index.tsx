@@ -5,10 +5,14 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Detail = () => {
   const { id } = useParams();
-  const { isLoading, data } = useQuery<CharacterDetail>({
+  const { isLoading, data, error } = useQuery<CharacterDetail>({
     queryKey: ['detail', id],
     queryFn: () => fetchDetail(id!),
+    retry: false,
+    refetchOnWindowFocus: false, // 창이 focus될 때 refetch
   });
+
+  if (error) throw error;
   return (
     <div>
       {isLoading ? (

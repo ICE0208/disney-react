@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './Root';
 import { Detail, Home } from './pages';
-import { ErrorComponent } from './components';
+import { ErrorComponent, NotFound } from './components';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,7 @@ const router = createBrowserRouter([
       {
         path: 'character/:id',
         element: <Detail />,
+        errorElement: <NotFound />,
       },
     ],
   },
