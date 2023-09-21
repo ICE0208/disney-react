@@ -33,12 +33,12 @@ const Container = styled.div`
   }
   p {
     color: whitesmoke;
-    font-weight: bold;
     overflow: hidden;
+    font-style: italic;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
   }
   img {
     border-radius: 50%;

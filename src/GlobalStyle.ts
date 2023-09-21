@@ -51,12 +51,13 @@ table {
 * {
   box-sizing: border-box;
 }
-body {
-  font-family: 'Source Sans 3', sans-serif;
-}
 a {
   text-decoration: none;
   color: inherit;
+}
+
+body {
+  font-family: 'Bitter', serif;
 }
 `;
 
