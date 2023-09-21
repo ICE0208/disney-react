@@ -8,14 +8,13 @@ const Home = () => {
     queryKey: ['characters'],
     queryFn: fetchCharacters,
   });
-
   return (
     <div>
       {isLoading ? (
         <h1>Loading</h1>
       ) : (
         <div>
-          {data?.map((character) => (
+          {data?.slice(0, 30).map((character) => (
             <div key={character.id}>
               <Link to={`character/${character.id}`}>
                 <h3>{character.name}</h3>
