@@ -4,6 +4,7 @@ import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { Loading } from '../../components';
 
 interface RouteState {
   state: {
@@ -30,7 +31,7 @@ const Detail = () => {
         <title>{state?.name ?? (isLoading ? 'Loading' : data?.name)}</title>
       </Helmet>
       {isLoading ? (
-        <h1>Loading</h1>
+        <Loading />
       ) : (
         <Container>
           <CharacterImage src={data?.imageUrl} />

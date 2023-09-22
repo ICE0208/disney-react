@@ -3,6 +3,7 @@ import { fetchCharacters } from '../../api';
 import styled from 'styled-components';
 import { Character } from './components';
 import { Helmet } from 'react-helmet';
+import { Loading } from '../../components';
 
 const Home = () => {
   const { isLoading, data } = useQuery<ICharacter[]>({
@@ -10,20 +11,22 @@ const Home = () => {
     queryFn: fetchCharacters,
   });
   return (
-    <Container>
+    <>
       <Helmet title="Disney Characters" />
       {isLoading ? (
-        <h1>Loading</h1>
+        <Loading />
       ) : (
-        <GridContainer>
-          {data
-            ?.slice(0, 30)
-            .map((character) => (
-              <Character character={character} key={character.id} />
-            ))}
-        </GridContainer>
+        <Container>
+          <GridContainer>
+            {data
+              ?.slice(0, 30)
+              .map((character) => (
+                <Character character={character} key={character.id} />
+              ))}
+          </GridContainer>
+        </Container>
       )}
-    </Container>
+    </>
   );
 };
 
