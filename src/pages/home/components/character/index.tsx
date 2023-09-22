@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Character = ({ character }: CharacterProps) => {
   return (
-    <Link to={`character/${character.id}`}>
+    <Link to={`character/${character.id}`} state={{ name: character.name }}>
       <Container>
         <LazyLoadImage
           src={character.imageUrl}

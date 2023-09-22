@@ -1,11 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+import { FlexCenter, Loading } from '../../components';
+
+interface RouteState {
+  state: {
+    name: string;
+  };
+}
 
 const Detail = () => {
   const { id } = useParams();
+  const { state } = useLocation() as RouteState;
+  console.log(state);
+
   const { isLoading, data, error } = useQuery<CharacterDetail>({
     queryKey: ['detail', id],
     queryFn: () => fetchDetail(id!),
@@ -15,11 +26,14 @@ const Detail = () => {
 
   if (error) throw error;
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>{state?.name ?? (isLoading ? 'Loading' : data?.name)}</title>
+      </Helmet>
       {isLoading ? (
-        <h1>Loading</h1>
+        <Loading />
       ) : (
-        <Container>
+        <FlexCenter>
           <CharacterImage src={data?.imageUrl} />
           <CharacterName>{data?.name}</CharacterName>
           <FilmContainer>
@@ -34,30 +48,11 @@ const Detail = () => {
               More &nbsp; &rarr;
             </More>
           </LinkArea>
-        </Container>
+        </FlexCenter>
       )}
-    </div>
+    </>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  background-color: #4580b7;
-  padding: 34px;
-  box-sizing: border-box;
-  &::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50vh;
-    background-color: #4580b7; /* 더 내려갈 때 나타나는 배경 색상 (파란색) */
-    z-index: -2; /* 페이지 내용 위에 나타나도록 설정 */
-  }
-`;
 
 const CharacterImage = styled(LazyLoadImage)`
   width: 260px;
