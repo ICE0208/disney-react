@@ -4,7 +4,7 @@ import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { Loading } from '../../components';
+import { FlexCenter, Loading } from '../../components';
 
 interface RouteState {
   state: {
@@ -33,7 +33,7 @@ const Detail = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Container>
+        <FlexCenter>
           <CharacterImage src={data?.imageUrl} />
           <CharacterName>{data?.name}</CharacterName>
           <FilmContainer>
@@ -48,30 +48,11 @@ const Detail = () => {
               More &nbsp; &rarr;
             </More>
           </LinkArea>
-        </Container>
+        </FlexCenter>
       )}
     </>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  background-color: #4580b7;
-  padding: 34px;
-  box-sizing: border-box;
-  &::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50vh;
-    background-color: #4580b7; /* 더 내려갈 때 나타나는 배경 색상 (파란색) */
-    z-index: -2; /* 페이지 내용 위에 나타나도록 설정 */
-  }
-`;
 
 const CharacterImage = styled(LazyLoadImage)`
   width: 260px;
