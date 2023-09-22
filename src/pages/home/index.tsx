@@ -33,7 +33,7 @@ const Home = () => {
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 50px 70px;
+  grid-gap: 20px 30px;
   margin: auto; // Add this line to center the container
   width: 100%;
   max-width: 1800px;
