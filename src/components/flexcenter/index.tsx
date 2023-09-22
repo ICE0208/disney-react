@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HEADER_HEIGHT } from '../header';
 
 const FlexCenter = styled.div`
   display: flex;
@@ -7,6 +8,7 @@ const FlexCenter = styled.div`
   flex-direction: column;
   background-color: #4580b7;
   padding: 40px 80px;
+  min-height: calc(100vh - ${HEADER_HEIGHT}px);
   box-sizing: border-box;
   &::after {
     content: '';

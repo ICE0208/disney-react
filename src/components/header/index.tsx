@@ -6,9 +6,11 @@ const Header = () => (
   </Container>
 );
 
+export const HEADER_HEIGHT = 68;
+
 const Container = styled.div`
   width: 100%;
-  height: 68px;
+  height: ${HEADER_HEIGHT}px;
   background-color: #194764;
   display: flex;
   justify-content: center;
