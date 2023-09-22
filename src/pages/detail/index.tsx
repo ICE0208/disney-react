@@ -1,11 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+
+interface RouteState {
+  state: {
+    name: string;
+  };
+}
 
 const Detail = () => {
   const { id } = useParams();
+  const { state } = useLocation() as RouteState;
+  console.log(state);
+
   const { isLoading, data, error } = useQuery<CharacterDetail>({
     queryKey: ['detail', id],
     queryFn: () => fetchDetail(id!),
@@ -15,7 +25,10 @@ const Detail = () => {
 
   if (error) throw error;
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>{state?.name ?? (isLoading ? 'Loading' : data?.name)}</title>
+      </Helmet>
       {isLoading ? (
         <h1>Loading</h1>
       ) : (
@@ -36,7 +49,7 @@ const Detail = () => {
           </LinkArea>
         </Container>
       )}
-    </div>
+    </>
   );
 };
 
