@@ -17,11 +17,11 @@ const Detail = () => {
   const { isLoading, data, error } = useQuery<CharacterDetail>({
     queryKey: ['detail', id],
     queryFn: () => fetchDetail(id!),
-    retry: false,
+    retry: 1,
     refetchOnWindowFocus: false, // 창이 focus될 때 refetch
   });
 
-  if (error) throw error;
+  if (error && state === null) throw error;
   return (
     <>
       <Helmet>
@@ -39,7 +39,11 @@ const Detail = () => {
         <FilmContainer>
           {data?.films?.map((film, idx) => (
             <FilmText key={`${id}_${idx}`}>{film}</FilmText>
-          )) ?? <FilmLoadingText>Loading...</FilmLoadingText>}
+          )) ?? (
+            <FilmLoadingStateText>
+              {error ? 'Not Found :(' : 'Loading...'}
+            </FilmLoadingStateText>
+          )}
         </FilmContainer>
         <LinkArea>
           <Back to="/">&larr; &nbsp; Back</Back>
@@ -93,7 +97,7 @@ const FilmText = styled.span`
   font-size: 18px;
 `;
 
-const FilmLoadingText = styled.div`
+const FilmLoadingStateText = styled.div`
   color: whitesmoke;
   font-size: 20px;
 `;
