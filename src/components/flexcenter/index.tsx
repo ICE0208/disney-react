@@ -3,9 +3,9 @@ import { HEADER_HEIGHT } from '../header';
 
 const FlexCenter = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   background-color: #4580b7;
   padding: 40px 80px;
   min-height: calc(100vh - ${HEADER_HEIGHT}px);

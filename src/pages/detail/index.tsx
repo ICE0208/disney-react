@@ -52,6 +52,7 @@ const CharacterImage = styled(LazyLoadImage)`
   height: 260px;
   object-fit: cover;
   border-radius: 50%;
+  margin-top: 36px;
   margin-bottom: 20px;
   background-color: #e5e5e5;
 `;
