@@ -97,7 +97,7 @@ const linkTextStyle = `
   font-size: 18px;
 `;
 
-const Back = styled(Link).attrs({ tabIndex: -1 })`
+export const Back = styled(Link).attrs({ tabIndex: -1 })`
   ${linkTextStyle}
 `;
 
