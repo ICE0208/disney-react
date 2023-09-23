@@ -38,7 +38,7 @@ const Detail = () => {
         <LinkArea>
           <Back to="/">&larr; &nbsp; Back</Back>
           <LinkSeperator />
-          <More href={data?.sourceUrl} target="_blank">
+          <More href={data?.sourceUrl} target="_blank" $canClick={!isLoading}>
             More &nbsp; &rarr;
           </More>
         </LinkArea>
@@ -91,12 +91,13 @@ const linkTextStyle = `
   font-size: 18px;
 `;
 
-const Back = styled(Link)`
+const Back = styled(Link).attrs({ tabIndex: -1 })`
   ${linkTextStyle}
 `;
 
-const More = styled.a`
-  ${linkTextStyle}
+const More = styled.a.attrs({ tabIndex: -1 })<{ $canClick: boolean }>`
+  ${linkTextStyle};
+  pointer-events: ${(props) => (props.$canClick ? 'auto' : 'none')};
 `;
 
 const LinkSeperator = styled.div`
