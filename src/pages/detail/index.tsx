@@ -4,7 +4,7 @@ import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { FlexCenter, Loading } from '../../components';
+import { FlexColStart, Loading } from '../../components';
 
 interface RouteState {
   name: string;
@@ -27,7 +27,7 @@ const Detail = () => {
       <Helmet>
         <title>{state?.name ?? (isLoading ? 'Loading' : data?.name)}</title>
       </Helmet>
-      <FlexCenter>
+      <FlexColStart>
         <CharacterImage src={state?.imageUrl ?? data?.imageUrl} />
         <CharacterName>{state?.name ?? data?.name ?? 'Loading'}</CharacterName>
         <FilmContainer>
@@ -42,7 +42,7 @@ const Detail = () => {
             More &nbsp; &rarr;
           </More>
         </LinkArea>
-      </FlexCenter>
+      </FlexColStart>
     </>
   );
 };

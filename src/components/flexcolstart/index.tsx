@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { HEADER_HEIGHT } from '../header';
 
-const FlexCenter = styled.div`
+const FlexColStart = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -21,4 +21,4 @@ const FlexCenter = styled.div`
   }
 `;
 
-export default FlexCenter;
+export default FlexColStart;
