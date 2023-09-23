@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { FlexColStart } from '..';
 
 const Loading = () => (
-  <FlexColStart style={{ justifyContent: 'center' }}>
+  <FlexColStart $center>
     <Circle />
     <Text>Loading...</Text>
   </FlexColStart>

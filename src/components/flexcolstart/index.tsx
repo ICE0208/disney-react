@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { HEADER_HEIGHT } from '../header';
 
-const FlexColStart = styled.div`
+const FlexColStart = styled.div<{ $center?: boolean }>`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: ${(props) => (props.$center ? 'center' : 'flex-start')};
   align-items: center;
   background-color: #4580b7;
   padding: 40px 80px;
