@@ -4,7 +4,7 @@ import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { FlexColStart, Loading } from '../../components';
+import { FlexColStart } from '../../components';
 
 interface RouteState {
   name: string;
