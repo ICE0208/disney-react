@@ -4,7 +4,7 @@ import { fetchDetail } from '../../api';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { FlexCenter } from '../../components';
+import { FlexCenter, Loading } from '../../components';
 
 interface RouteState {
   name: string;
@@ -33,7 +33,7 @@ const Detail = () => {
         <FilmContainer>
           {data?.films?.map((film, idx) => (
             <FilmText key={`${id}_${idx}`}>{film}</FilmText>
-          ))}
+          )) ?? <FilmLoadingText>Loading...</FilmLoadingText>}
         </FilmContainer>
         <LinkArea>
           <Back to="/">&larr; &nbsp; Back</Back>
@@ -85,6 +85,11 @@ const FilmText = styled.span`
   justify-content: center;
   justify-self: center;
   font-size: 18px;
+`;
+
+const FilmLoadingText = styled.div`
+  color: whitesmoke;
+  font-size: 20px;
 `;
 
 const linkTextStyle = `
