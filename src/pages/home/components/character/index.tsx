@@ -11,7 +11,10 @@ const Character = ({ character }: CharacterProps) => {
     >
       <Container>
         <LazyLoadImage
-          src={character.imageUrl}
+          src={
+            character.imageUrl ??
+            'https://static.wikia.nocookie.net/disney/images/not.jpg'
+          }
           alt={character.name}
           loading="lazy"
           width="200"

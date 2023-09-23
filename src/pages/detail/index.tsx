@@ -28,7 +28,13 @@ const Detail = () => {
         <title>{state?.name ?? (isLoading ? 'Loading' : data?.name)}</title>
       </Helmet>
       <FlexColStart>
-        <CharacterImage src={state?.imageUrl ?? data?.imageUrl} />
+        <CharacterImage
+          src={
+            state?.imageUrl ??
+            data?.imageUrl ??
+            'https://static.wikia.nocookie.net/disney/images/not.jpg'
+          }
+        />
         <CharacterName>{state?.name ?? data?.name ?? 'Loading'}</CharacterName>
         <FilmContainer>
           {data?.films?.map((film, idx) => (
