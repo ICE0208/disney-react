@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Root from './Root';
 import { Detail, Home } from './pages';
 import { Error, NotFound } from './components';
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <Navigate to="/" />,
   },
 ]);
 
