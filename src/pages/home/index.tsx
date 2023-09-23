@@ -19,7 +19,7 @@ const Home = () => {
         <FlexColStart>
           <GridContainer>
             {data
-              ?.slice(0, 3000)
+              ?.slice(0, 100)
               .map((character) => (
                 <Character character={character} key={character.id} />
               ))}

@@ -88,6 +88,8 @@ const FilmContainer = styled.div`
   margin-bottom: 56px;
   min-height: 150px;
   align-items: flex-start;
+  align-content: flex-start;
+  row-gap: 1px;
 `;
 
 const FilmText = styled.span`
