@@ -21,7 +21,7 @@ const Character = ({ character }: CharacterProps) => {
           height="200"
           style={{ objectFit: 'cover' }}
         />
-        <p>{character.name}</p>
+        <p style={{ padding: '4px' }}>{character.name}</p>
       </Container>
     </Link>
   );
