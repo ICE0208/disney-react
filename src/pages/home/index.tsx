@@ -3,7 +3,7 @@ import { fetchCharacters } from '../../api';
 import styled from 'styled-components';
 import { Character } from './components';
 import { Helmet } from 'react-helmet';
-import { FlexCenter, Loading } from '../../components';
+import { FlexColStart, Loading } from '../../components';
 
 const Home = () => {
   const { isLoading, data } = useQuery<ICharacter[]>({
@@ -16,15 +16,15 @@ const Home = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <FlexCenter>
+        <FlexColStart>
           <GridContainer>
             {data
-              ?.slice(0, 30)
+              ?.slice(0, 3000)
               .map((character) => (
                 <Character character={character} key={character.id} />
               ))}
           </GridContainer>
-        </FlexCenter>
+        </FlexColStart>
       )}
     </>
   );

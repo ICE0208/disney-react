@@ -1,11 +1,11 @@
 import styled, { keyframes } from 'styled-components';
-import { FlexCenter } from '..';
+import { FlexColStart } from '..';
 
 const Loading = () => (
-  <FlexCenter>
+  <FlexColStart $center>
     <Circle />
     <Text>Loading...</Text>
-  </FlexCenter>
+  </FlexColStart>
 );
 
 const circleAnimation = keyframes`

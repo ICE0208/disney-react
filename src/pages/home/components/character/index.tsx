@@ -5,17 +5,23 @@ import styled from 'styled-components';
 
 const Character = ({ character }: CharacterProps) => {
   return (
-    <Link to={`character/${character.id}`} state={{ name: character.name }}>
+    <Link
+      to={`character/${character.id}`}
+      state={{ name: character.name, imageUrl: character.imageUrl }}
+    >
       <Container>
         <LazyLoadImage
-          src={character.imageUrl}
+          src={
+            character.imageUrl ??
+            'https://static.wikia.nocookie.net/disney/images/not.jpg'
+          }
           alt={character.name}
           loading="lazy"
           width="200"
           height="200"
           style={{ objectFit: 'cover' }}
         />
-        <p>{character.name}</p>
+        <p style={{ padding: '4px' }}>{character.name}</p>
       </Container>
     </Link>
   );
