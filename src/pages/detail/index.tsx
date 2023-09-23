@@ -48,7 +48,11 @@ const Detail = () => {
         <LinkArea>
           <Back to="/">&larr; &nbsp; Back</Back>
           <LinkSeperator />
-          <More href={data?.sourceUrl} target="_blank" $canClick={!isLoading}>
+          <More
+            href={data?.sourceUrl}
+            target="_blank"
+            $canClick={!isLoading && !error}
+          >
             More &nbsp; &rarr;
           </More>
         </LinkArea>
