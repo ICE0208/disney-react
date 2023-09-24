@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCharacters } from '../../api';
 import styled from 'styled-components';
-import { Character } from './components';
+import { Character, Top } from './components';
 import { Helmet } from 'react-helmet';
 import { FlexColStart, Loading } from '../../components';
 
@@ -13,6 +13,7 @@ const Home = () => {
   return (
     <>
       <Helmet title="Disney Characters" />
+      <Top />
       {isLoading ? (
         <Loading />
       ) : (

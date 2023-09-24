@@ -68,16 +68,17 @@ const CharacterImage = styled(LazyLoadImage)`
   border-radius: 50%;
   margin-top: 36px;
   margin-bottom: 20px;
-  background-color: #e5e5e5;
+  background-color: ${(props) => props.theme.boxBgColor};
 `;
 
 const CharacterName = styled.h1`
   padding: 20px;
   font-size: 32px;
   font-style: italic;
-  color: whitesmoke;
+  color: ${(props) => props.theme.mainTextColor};
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
 `;
 
 const FilmContainer = styled.div`
@@ -93,10 +94,11 @@ const FilmContainer = styled.div`
 `;
 
 const FilmText = styled.span`
-  background-color: whitesmoke;
+  background-color: ${(props) => props.theme.boxBgColor};
+  color: ${(props) => props.theme.boxTextColor};
   margin: 4px;
   display: inline-block;
-  padding: 10px 10px;
+  padding: 12px 12px;
   border-radius: 20px;
   justify-content: center;
   justify-self: center;
@@ -104,7 +106,7 @@ const FilmText = styled.span`
 `;
 
 const FilmLoadingStateText = styled.div`
-  color: whitesmoke;
+  color: ${(props) => props.theme.mainTextColor};
   font-size: 20px;
 `;
 
@@ -115,17 +117,19 @@ const linkTextStyle = `
 
 export const Back = styled(Link).attrs({ tabIndex: -1 })`
   ${linkTextStyle}
+  color: ${(props) => props.theme.mainTextColor};
 `;
 
 const More = styled.a.attrs({ tabIndex: -1 })<{ $canClick: boolean }>`
   ${linkTextStyle};
+  color: ${(props) => props.theme.mainTextColor};
   pointer-events: ${(props) => (props.$canClick ? 'auto' : 'none')};
 `;
 
 const LinkSeperator = styled.div`
   width: 1px;
   height: 100%;
-  background-color: whitesmoke;
+  background-color: ${(props) => props.theme.mainTextColor};
 `;
 
 const LinkArea = styled.div`

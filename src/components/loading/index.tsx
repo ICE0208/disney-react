@@ -20,7 +20,7 @@ const circleAnimation = keyframes`
     }
 `;
 const Text = styled.h1`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.mainTextColor};
   font-size: 80px;
   margin-top: 36px;
 `;
@@ -28,7 +28,7 @@ const Text = styled.h1`
 const Circle = styled.div`
   width: 42px;
   height: 42px;
-  border: 4px solid #f3f3f3;
+  border: 4px solid ${(props) => props.theme.mainTextColor};
   animation: ${circleAnimation} 1s linear infinite;
 `;
 
