@@ -60,12 +60,12 @@ const Container = styled.div`
     transition: all ${ANIMATION_TIME}s ease-in-out;
   }
   &:hover {
-    background-color: ${(props) => props.theme.hoverBgColor};
+    background-color: ${(props) => props.theme.boxBgColor};
     p {
-      color: ${(props) => props.theme.hoverTextColor};
+      color: ${(props) => props.theme.boxTextColor};
     }
     img {
-      border-color: black;
+      border-color: ${(props) => props.theme.boxBorderColor};
     }
   }
 `;

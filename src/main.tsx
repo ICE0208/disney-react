@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Globalstyle from './GlobalStyle.ts';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './theme.ts';
-import { RecoilRoot, useRecoilValue } from 'recoil'; // 추가
+import { RecoilRoot, useRecoilValue } from 'recoil';
 import { isDarkAtom } from './atoms.ts';
 
 const queryClient = new QueryClient({
@@ -38,8 +38,6 @@ export const App = () => {
 
 root.render(
   <RecoilRoot>
-    {' '}
-    {/* RecoilRoot로 App 감싸기 */}
     <App />
   </RecoilRoot>,
 );
