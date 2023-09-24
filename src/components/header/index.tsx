@@ -1,20 +1,36 @@
+import { useCallback } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { isDarkAtom } from '../../atoms';
+import { BiSolidMoon, BiSolidSun } from 'react-icons/bi';
 
-const Header = () => (
-  <Container>
-    <Title>Disney Characters</Title>
-  </Container>
-);
+const Header = () => {
+  const [isDark, setIsDark] = useRecoilState(isDarkAtom);
+  const toggleDark = useCallback(() => {
+    setIsDark((prev) => !prev);
+  }, [setIsDark]);
+
+  return (
+    <Container>
+      <Title>Disney Characters</Title>
+      <DarkBtn onClick={toggleDark}>
+        {isDark ? <BiSolidSun /> : <BiSolidMoon />}
+      </DarkBtn>
+    </Container>
+  );
+};
 
 export const HEADER_HEIGHT = 68;
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   height: ${HEADER_HEIGHT}px;
   background-color: ${(props) => props.theme.hightlightColor};
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 30px;
   &::after {
     content: '';
     position: fixed;
@@ -29,8 +45,25 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  color: white;
+  color: ${(props) => props.theme.mainTextColor};
   font-size: 30px;
+`;
+
+const DarkBtn = styled.button`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0px;
+  top: 0px;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  text-align: center;
+  color: ${(props) => props.theme.mainTextColor};
 `;
 
 export default Header;
