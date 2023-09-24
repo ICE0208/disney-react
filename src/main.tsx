@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Globalstyle from './GlobalStyle.ts';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './theme.ts';
-import { RecoilRoot, useRecoilValue } from 'recoil';
+import { RecoilRoot, useRecoilState } from 'recoil';
 import { isDarkAtom } from './atoms.ts';
 
 const queryClient = new QueryClient({
@@ -22,7 +22,7 @@ const root = ReactDOM.createRoot(
 );
 
 export const App = () => {
-  const isDark = useRecoilValue(isDarkAtom); // Recoil 상태 가져오기
+  const [isDark] = useRecoilState(isDarkAtom); // Recoil 상태 가져오기
   const theme = isDark ? darkTheme : lightTheme; // 테마 선택
 
   return (

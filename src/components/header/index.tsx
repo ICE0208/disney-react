@@ -6,9 +6,7 @@ import { BiSolidMoon, BiSolidSun } from 'react-icons/bi';
 
 const Header = () => {
   const [isDark, setIsDark] = useRecoilState(isDarkAtom);
-  const toggleDark = useCallback(() => {
-    setIsDark((prev) => !prev);
-  }, [setIsDark]);
+  const toggleDark = useCallback(() => setIsDark((prev) => !prev), [setIsDark]);
 
   return (
     <Container>
