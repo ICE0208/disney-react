@@ -2,8 +2,8 @@
 import { DefaultTheme } from 'styled-components';
 
 const lightTheme: DefaultTheme = {
-  hightlightColor: '#194764',
-  bgColor: '#4580b7',
+  hightlightColor: '#1892df',
+  bgColor: '#3d9af1',
   mainTextColor: 'whitesmoke',
   hoverTextColor: 'black',
   hoverBgColor: 'whitesmoke',

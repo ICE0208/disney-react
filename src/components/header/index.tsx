@@ -31,6 +31,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
+  box-shadow: #2b2b2b 0px -20px 20px 20px;
   &::after {
     content: '';
     position: fixed;

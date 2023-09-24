@@ -26,7 +26,7 @@ const TopStyle = styled.button`
   background-color: ${(props) => props.theme.hightlightColor};
   color: ${(props) => props.theme.mainTextColor};
   font-size: 16px;
-  border: 2px solid black;
+  border: 2px solid ${(props) => props.theme.hoverTextColor};
   box-sizing: border-box;
   cursor: pointer;
 `;
