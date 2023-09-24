@@ -78,6 +78,7 @@ const CharacterName = styled.h1`
   color: ${(props) => props.theme.mainTextColor};
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
 `;
 
 const FilmContainer = styled.div`
