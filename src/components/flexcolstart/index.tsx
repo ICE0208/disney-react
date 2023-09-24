@@ -6,7 +6,7 @@ const FlexColStart = styled.div<{ $center?: boolean }>`
   flex-direction: column;
   justify-content: ${(props) => (props.$center ? 'center' : 'flex-start')};
   align-items: center;
-  background-color: #4580b7;
+  background-color: ${(props) => props.theme.bgColor};
   padding: 40px 80px;
   min-height: calc(100vh - ${HEADER_HEIGHT}px);
   box-sizing: border-box;
@@ -16,7 +16,8 @@ const FlexColStart = styled.div<{ $center?: boolean }>`
     bottom: 0;
     width: 100%;
     height: 50vh;
-    background-color: #4580b7; /* 더 내려갈 때 나타나는 배경 색상 (파란색) */
+    background-color: ${(props) =>
+      props.theme.bgColor}; /* 더 내려갈 때 나타나는 배경 색상 (파란색) */
     z-index: -2; /* 페이지 내용 위에 나타나도록 설정 */
   }
 `;

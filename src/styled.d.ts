@@ -4,8 +4,11 @@ import 'styled-components';
 // and extend them!
 declare module 'styled-components' {
   export interface DefaultTheme {
+    headerColor: string;
+    bgColor: string;
     mainTextColor: string;
-    boxTextColor: string;
-    boxColor: string;
+    hoverTextColor: string;
+    hoverBgColor: string;
+    hoverBorderColor: string;
   }
 }

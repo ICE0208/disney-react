@@ -43,7 +43,7 @@ const Container = styled.div`
   }
   p {
     width: 100%;
-    color: whitesmoke;
+    color: ${(props) => props.theme.mainTextColor};
     overflow: hidden;
     font-style: italic;
     text-overflow: ellipsis;
@@ -60,9 +60,9 @@ const Container = styled.div`
     transition: all ${ANIMATION_TIME}s ease-in-out;
   }
   &:hover {
-    background-color: white;
+    background-color: ${(props) => props.theme.hoverBgColor};
     p {
-      color: black;
+      color: ${(props) => props.theme.hoverTextColor};
     }
     img {
       border-color: black;

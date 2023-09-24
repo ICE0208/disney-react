@@ -13,7 +13,7 @@ const NotFound = () => {
 };
 
 const NotFoundText = styled.div`
-  color: whitesmoke;
+  color: ${(props) => props.theme.mainTextColor};
   font-size: 52px;
 `;
 

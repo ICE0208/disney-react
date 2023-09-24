@@ -20,7 +20,7 @@ const circleAnimation = keyframes`
     }
 `;
 const Text = styled.h1`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.mainTextColor};
   font-size: 80px;
   margin-top: 36px;
 `;
