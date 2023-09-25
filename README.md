@@ -1,3 +1,5 @@
-# React + TypeScript + Vite
+# Disney-React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Try it out
+
+[https://disney-react-ice.netlify.app/](https://disney-react-ice.netlify.app/)
